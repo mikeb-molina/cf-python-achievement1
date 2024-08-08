@@ -1,0 +1,24 @@
+Pre-Work: Before You Start the Course
+
+What experiences have you had with coding and/or programming so far? What other experiences (programming-related or not) have you had that may help you as you progress through this course?
+-The only experience I have is what I have been through so far in this course. I am transitioning careers and I came into this with little to no experience, only curiosity and determination. I have done several projects using javascript and this will be my first using python.
+
+What do you know about Python already? What do you want to know?
+-I know very little about python so far, however from the job postings I have looked at python seems to be a very popular language and I believe understanding it will help me quite a bit in my future career. I am curious to see what exactly is different from javascript, and to see just why so many jobs are requesting an understanding of python specifically,
+
+What challenges do you think may come up while you take this course? What will help you face them? Think of specific spaces, people, and times of day of week that might be favorable to your facing challenges and growing. Plan for how to solve challenges that arise. 
+-So far with all of my previous projects the main challenge has been to not completely rely on the instructions in the course. In my previous react project I had quite a bit of difficulty because the instructions from the course were outdated. I have had to look for answers on my own a bunch but the last project was the toughest so far. Reading through the instructions for the first task in this project seem vague so I will have to do some of my own research right off the bat.
+
+
+Exercise 1.1: Getting Started with Python
+
+
+In your own words, what is the difference between frontend and backend web development? If you were hired to work on backend programming for a web application, what kinds of operations would you be working on?
+-The frontend Web development involves creating the User Interface, all of the aspects that the user will see or actually interact with, while backend Web development takes care of everything that happens behind the scenes. The backend developer would handle operations like managing databases, handling user input, data storage and business logic.
+ 
+Imagine you’re working as a full-stack developer in the near future. Your team is asking for your advice on whether to use JavaScript or Python for a project, and you think Python would be the better choice. How would you explain the similarities and differences between the two languages to your team? Drawing from what you learned in this Exercise, what reasons would you give to convince your team that Python is the better option?
+-There are several advantages that python has, like readability, a large built-in package management system. This will make the project more simple and easier to read as well as a strong community of support ensures that it will be up to date and run smoothly.
+ 
+Now that you’ve had an introduction to Python, write down 3 goals you have for yourself and your learning during this Achievement. You can reflect on the following questions if it helps you. What do you want to learn about Python? What do you want to get out of this Achievement? Where or what do you see yourself working on after you complete this Achievement?
+-The main goals I have for Python are mostly career based. I have barely scratched the surface so far and I am not familiar enough with Python to have any specific goals other than to grasp the main ideas. I am interested in mastering Python in order to acquire the skills I need to land the job I want. However I am not sure what that job is exactly yet so one goal might be to find out whether Python will be the language I focus on mostly in the future. I know a developer should know many different languages and systems but I am still looking to see which one I really grab onto and I can really rely on.
+

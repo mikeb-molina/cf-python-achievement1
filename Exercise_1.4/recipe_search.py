@@ -6,8 +6,8 @@ def display_recipe(recipe):
     print("Recipe: ", recipe["name"])
     print("Cooking Time (min): ", recipe["cooking_time"])
     print("Ingredients: ")
-        for ele in recipe["ingredients"]:
-            print("- ", ele)
+    for ele in recipe["ingredients"]:
+        print("- ", ele)
     print("Difficulty: ", recipe["difficulty"])
 
 #Search ingredients

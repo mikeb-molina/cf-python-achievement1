@@ -20,6 +20,8 @@ cursor.execute('''CREATE TABLE IF NOT EXISTS Recipes(
                 difficulty VARCHAR(20)
 )''')
 
+conn.commit()
+
 
 
 
@@ -52,13 +54,16 @@ def main_menu(conn, cursor):
                 delete_recipe(conn, cursor)
             elif choice == quit:
                 print("Thank you for using Recipe APP!")
+                conn.commit()
+                cursor.close()
+                conn.close()
                 break
             else:
                 print("Invalid choise, please enter 1, 2, 3, 4, or 'quit'.")
                 print("---------------------------------------------------")
                 print("...returning to the main menu.\n\n")
 
-        conn.close()
+        
 
 
 def create_recipe(conn, cursor):
@@ -224,7 +229,7 @@ def update_recipe(conn, cursor):
             recipe_id = int(input("Enter the ID of the recipe to update: "))
             print()
 
-            cursor.execute("SELECT COUNT(*) FROM Recipes WHERE id = %s", (recipe_id,))
+            cursor.execute("SELECT Count(*) FROM Recipes WHERE id = %s", (recipe_id,))
             if cursor.fetchone()[0] == 0:
                 print("No recipe found witht he entered ID, please try again.\n")
             else:

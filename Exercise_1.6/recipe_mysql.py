@@ -106,8 +106,6 @@ def create_recipe(conn, cursor):
         final_message = "recipe successfully added!" if number_of_recipes ==1 else "All recipes successfully added!"
 
         print()
-        print("---------")
-        print(" {final_message} ")
         print("---------\n")
         print("...returning to the main menu\n\n")
     
@@ -210,8 +208,7 @@ def update_recipe(conn, cursor):
     print()
     print("---------")
     print("***Update a recipe by ID number***")
-    print("---------")
-    print("Please enter an Id number to update that recipe\n")
+    print("---------\n")
 
 
     print("----Available Recipes----")
@@ -239,52 +236,53 @@ def update_recipe(conn, cursor):
             print("Invalid input, please enter a number.\n")
 
         
-        selected_recipe= next((recipe for recipe in results if recipe[0] == recipe_id), None)
-        if selected_recipe:
-            print(f"Which field would you like to update for '{selected_recipe[1]}'?")
-        else:
-            print("Recipe not found.")
-            return
-        print(" - Name")
-        print(" - Cooking Time")
-        print(" - Ingredients\n")
+    selected_recipe= next((recipe for recipe in results if recipe[0] == recipe_id), None)
+    if selected_recipe:
+        print(f"Which field would you like to update for '{selected_recipe[1]}'?")
+    else:
+        print("Recipe not found.")
+        return
+    print(" - Name")
+    print(" - Cooking Time")
+    print(" - Ingredients\n")
 
-        update_field = input("Enter your choice: ").lower()
-        print()
+    update_field = input("Enter your choice: ").lower()
+    print()
 
-        if update_field == "cooking time":
-            update_field = "cooking_time"
+    if update_field == "cooking time":
+        update_field = "cooking_time"
 
-        if update_field not in ["name", "cooking_time", "ingredients"]:
-            print("Invalid field. Please enter 'name', 'cooking_time', or 'ingredients'.")
-            return
-
-        if update_field == "cooking_time" or update_field == "cooking time":
-            while True:
-                try:
-                    new_value = int(input("Enter the new cooking time (in minutes): "))
-                    break
-                except ValueError:
-                    print("Invalid input, please enter a number.\n")
-        else:
-            new_value = input(f"Enter the new Value for {update_field}: ")
-
-        update_query = f"UPDATE Recipes SET {update_field} = %s WHERE id = %s"
-        cursor.execute(update_query, (new_value, recipe_id))
-
-        if update_field in ["cooking_time", "ingredients"]:
-            cursor.execute("SELECT cooking_time, ingredients FROM Recipes WHERE id = %s", (recipe_id))
-            update_recipe = cursor.fetchone()
-            new_difficulty = calculate_difficulty(int(updated_recipe[0]), updated_recipe[1].split(", "))
-
-            cursor.execute("UPDATE Recipes SET difficulty = %s WHERE id = %s", (new_difficulty, recipe_id))
+    if update_field not in ["name", "cooking_time", "ingredients"]:
+        print("Invalid field. Please enter 'name', 'cooking_time', or 'ingredients'.")
         
-        conn.commit()
-        print()
-        print("------------")
-        print("Recipe successfully updated!")
-        print("------------")
-        print("...returning to main menu\n\n")
+
+    if update_field == "cooking_time" or update_field == "cooking time":
+        while True:
+            try:
+                new_value = int(input("Enter the new cooking time (in minutes): "))
+                break
+            except ValueError:
+                print("Invalid input, please enter a number.\n")
+    else:
+        new_value = input(f"Enter the new Value for {update_field}: ")
+
+
+    if update_field in ["cooking_time", "ingredients"]:
+        cursor.execute("SELECT cooking_time, ingredients FROM Recipes WHERE id = %s", (recipe_id,))
+        updated_recipe = cursor.fetchone()
+        new_difficulty = calculate_difficulty(int(updated_recipe[0]), updated_recipe[1].split(", "))
+
+        cursor.execute("UPDATE Recipes SET difficulty = %s WHERE id = %s", (new_difficulty, recipe_id))
+        
+    update_query = f"UPDATE Recipes SET {update_field} = %s WHERE id = %s"
+    cursor.execute(update_query, (new_value, recipe_id))
+
+    conn.commit()
+    print()
+    print("------------")
+    print("Recipe successfully updated!")
+    print("------------")
+    print("...returning to main menu\n\n")
 
 
 def delete_recipe(conn, cursor):

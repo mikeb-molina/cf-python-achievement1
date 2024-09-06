@@ -149,6 +149,7 @@ def update_recipe():
     print("-"*10)
     for index, recipe in enumerate(recipes, start=1):
         print(f"{index}. {recipe.name}")
+        print()
 
     #Prompt user to select recipe to update
     recipe_index = int(input("Enter the number of the recipe you want to update: ")) -1
@@ -169,7 +170,7 @@ def update_recipe():
         if column == 'cooking_time':
             new_value = int(new_value)
 
-        #Updated the specified column
+        #Update the specified column
         setattr(recipe, column, new_value)
 
         #Recalculate difficulty if updating cooking_time or ingredients
@@ -178,7 +179,8 @@ def update_recipe():
 
         #Commit changes
         session.commit()
-        print("Recipe updated successfully!")
+        
+        print("\nRecipe updated successfully!\n")
     else:
         print("-"*10)
         print("Error: Recipe not found")
@@ -207,7 +209,7 @@ def delete_recipe():
 
         #Commit changes
         session.commit()
-        print("Recipe successfully deleted!")
+        print("Recipe successfully deleted!\n")
     else:
         print("-"*10)
         print("Error: recipe not found")

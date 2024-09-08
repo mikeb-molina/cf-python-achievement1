@@ -194,7 +194,7 @@ def delete_recipe():
     print("-"*10)
     print("Available Recipes:")
     print("-"*10)
-    for index, recipe in enumerate(recipes, start=1):
+    for index, recipe in enumerate(recipes):
         print(f"{index}. {recipe.name}")
         
     #Prompt user to select recipe to delete
